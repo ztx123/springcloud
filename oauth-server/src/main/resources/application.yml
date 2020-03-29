@@ -1,0 +1,5 @@
+# 不加这个会一直处于认证页面
+#server:
+#  servlet:
+#    context-path: '/tx'
+

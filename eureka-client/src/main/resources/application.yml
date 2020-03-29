@@ -1,0 +1,19 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8763
+
+spring:
+  application:
+    name: eureka-client
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0 # 将采样比例设置为1.0，也就是全部都需要，默认为0.1，设置为1.0时就是链路数据100%收集到zipkin-server
+  zipkin:
+    base-url: http://localhost:8080/ # 指定zipkin的服务器地址

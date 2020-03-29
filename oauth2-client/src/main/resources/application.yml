@@ -1,0 +1,14 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /oauth2-client
+security:
+  oauth2:
+    client:
+      client-id: txzhang
+      client-secret: 123456
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+      access-token-uri: http://localhost:8080/oauth/token
+    resource:
+      jwt:
+        key-uri: http://localhost:8080/oauth/token_key

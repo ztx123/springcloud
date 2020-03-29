@@ -1,0 +1,19 @@
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    #提交ip地址
+    prefer-ip-address: true
+    hostname: peer1
+  client:
+    # 不让eurekaServer向自己注册
+    register-with-eureka: false
+    fetch-registry: false
+#    service-url:
+#      defaultZone: http://peer2:8762/eureka/
+
+spring:
+  application:
+    name: peer1

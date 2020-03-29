@@ -1,0 +1,85 @@
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 3000
+server:
+  port: 80
+spring:
+  profiles:
+    active: before_route
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: host_route
+          uri: http://jd.com:80/
+          predicates:
+            # 匹配路径转发
+#            - Path= /get
+            - Host=localhost:80
+#            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+#          filters:
+#            - AddRequestHeader=Name, txzhang
+  application:
+    name: host_route
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: before_route
+          uri: http://jd.com
+          predicates:
+#            - Before=2020-02-02T17:42:47.789+07:00[Asia/Shanghai]
+            - Path=/test/**
+          filters:
+            args:
+              name: fallbackcmd
+              fallbackUri: forward:/fallback
+  application:
+    name: before_route
+#---
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: gateway-limiter
+#          uri: http://jd.com
+#          predicates:
+#            #            - Before=2020-02-02T17:42:47.789+07:00[Asia/Shanghai]
+#            - Path=/**
+#          filters:
+#            - name: RequestRateLimiter
+#              args:
+#                #限流键的解释器的ean对象的名字，使用SpEl表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象
+#                key-resolver: '#{@hostAddrKeyResolver}'
+#                #令牌桶每秒填充平均速率
+#                redis-rate-limiter.replenishRate: 1
+#                #令牌桶总容量
+#                redis-rate-limiter.burstCapacity: 3
+#  application:
+#    name: gateway_limiter
+#  redis:
+#    host: 192.168.0.201
+#    port: 6379
+#    database: 0
+
+
