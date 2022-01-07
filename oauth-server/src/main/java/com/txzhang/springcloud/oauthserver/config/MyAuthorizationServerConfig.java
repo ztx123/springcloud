@@ -1,6 +1,7 @@
 package com.txzhang.springcloud.oauthserver.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,7 +25,7 @@ import java.util.concurrent.TimeUnit;
  * @Description： 认证服务器配置
  * 链接： https://www.jianshu.com/p/ea0a7d89f5f0
  **/
-@Component
+@Configuration
 @EnableAuthorizationServer
 public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
@@ -36,7 +37,8 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("user")
+        clients.inMemory()
+                .withClient("user")
                 .secret(passwordEncoder().encode("123456"))
                 .authorizedGrantTypes("authorization_code", "refresh_token") //允许的授权类型
                 .scopes("all") //允许的授权方位

@@ -29,7 +29,8 @@ public class ClientWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/oauth/**").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll();
+                .and()
+                .formLogin().loginPage("/login").permitAll();
     }
 
     @Override

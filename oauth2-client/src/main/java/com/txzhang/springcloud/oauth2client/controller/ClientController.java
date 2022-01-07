@@ -33,9 +33,9 @@ public class ClientController {
         return "管理员页面";
     }
 
-    @GetMapping("/login")
-    @PreAuthorize("hasAnyAuthority('ROLE_USER')")
-    public String login() {
+    @GetMapping("/login1")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+    public String login1() {
         return "这是什么东西的登录页面！";
     }
 
