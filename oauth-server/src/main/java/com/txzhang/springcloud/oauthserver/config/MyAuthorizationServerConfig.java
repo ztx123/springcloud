@@ -32,6 +32,7 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
     /**
      * 用于定义客户详细信息服务的配置器。客户端详情信息进行初始化，能够把客户端详情信息写在内存中或者是通过数据库来存储调取详情信息。
      * 多个客户端来连接Spring OAuth2 Auth Server，需要在配置类里为inMemory生成器定义多个withClients
+     *
      * @param clients
      * @throws Exception
      */
@@ -42,11 +43,11 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
                 .secret(passwordEncoder().encode("123456"))
                 .authorizedGrantTypes("authorization_code", "refresh_token") //允许的授权类型
                 .scopes("all") //允许的授权方位
-        .autoApprove(false) //自动授权
-        .redirectUris("http://localhost:8087/login") //设置回调地址
-        .refreshTokenValiditySeconds(60 * 30)
-        .and()
-        .withClient("txzhang").secret(passwordEncoder().encode("123456"))
+                .autoApprove(false) //自动授权
+                .redirectUris("http://localhost:8087/login") //设置回调地址
+                .refreshTokenValiditySeconds(60 * 30)
+                .and()
+                .withClient("txzhang").secret(passwordEncoder().encode("123456"))
                 .authorizedGrantTypes("authorization_code", "refresh_token") //允许的授权类型
                 .scopes("all") //允许的授权方位
                 .autoApprove(false)
@@ -56,6 +57,7 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
 
     /**
      * 用来配置授权authorization以及令牌token的访问端点和令牌服务token services
+     *
      * @param endpoints
      * @throws Exception
      */
@@ -86,7 +88,7 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
 
     /**
      * JwtTokenStore：将OAuth2AccessToken保存到JSON Web Token
-     *
+     * <p>
      * jwt具有自解释的特性，客户端不需要再去授权服务器认证这个token的合法性,这里使用对称密钥testKey来签署我们的令牌，意味着需要为资源服务器使用同样的确切密钥。
      * 注：也支持使用非对称加密的方式，不过有点复杂
      *
@@ -99,6 +101,7 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
 
     /**
      * token生成器
+     *
      * @return
      */
     @Bean

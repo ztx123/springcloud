@@ -30,23 +30,24 @@ public class Practice {
 
     /**
      * 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
-     *
+     * <p>
      * 示例:
-     *
+     * <p>
      * 输入: [1,2,3]
      * 输出:
      * [
-     *   [1,2,3],
-     *   [1,3,2],
-     *   [2,1,3],
-     *   [2,3,1],
-     *   [3,1,2],
-     *   [3,2,1]
+     * [1,2,3],
+     * [1,3,2],
+     * [2,1,3],
+     * [2,3,1],
+     * [3,1,2],
+     * [3,2,1]
      * ]
-     *
+     * <p>
      * 来源：力扣（LeetCode）
      * 链接：https://leetcode-cn.com/problems/permutations
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     *
      * @param nums
      * @return
      */
@@ -67,13 +68,13 @@ public class Practice {
 
     /**
      * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
-     *
+     * <p>
      * 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
-     *
+     * <p>
      * 示例:
-     *
+     * <p>
      * 给定 nums = [2, 7, 11, 15], target = 9
-     *
+     * <p>
      * 因为 nums[0] + nums[1] = 2 + 7 = 9
      * 所以返回 [0, 1]
      *
@@ -83,9 +84,9 @@ public class Practice {
      */
     public static int[] twoSum(int[] nums, int target) {
         int[] result = {-1, -1};
-        for (int i = 0; i <nums.length ; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int cha = target - nums[i];
-            for (int j = i+1; j <nums.length ; j++) {
+            for (int j = i + 1; j < nums.length; j++) {
                 if (nums[j] == cha) {
                     result[0] = i;
                     result[1] = j;
@@ -99,12 +100,12 @@ public class Practice {
 
 
     /**
+     * 给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
+     * <p>
+     * 返回被除数 dividend 除以除数 divisor 得到的商。
+     * <p>
+     * 整数除法的结果应当截去（truncate）其小数部分，例如：truncate(8.345) = 8 以及 truncate(-2.7335) = -2
      *
-     给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
-
-     返回被除数 dividend 除以除数 divisor 得到的商。
-
-     整数除法的结果应当截去（truncate）其小数部分，例如：truncate(8.345) = 8 以及 truncate(-2.7335) = -2
      * @param dividend
      * @param divisor
      * @return
@@ -154,20 +155,21 @@ public class Practice {
 
     /**
      * 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
-     *
+     * <p>
      * 注意：答案中不可以包含重复的三元组。
-     *
+     * <p>
      *  
-     *
+     * <p>
      * 示例：
-     *
+     * <p>
      * 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
-     *
+     * <p>
      * 满足要求的三元组集合为：
      * [
-     *   [-1, 0, 1],
-     *   [-1, -1, 2]
+     * [-1, 0, 1],
+     * [-1, -1, 2]
      * ]
+     *
      * @param nums
      * @return
      */

@@ -1,0 +1,19 @@
+# 应用名称
+spring:
+  application:
+    name: nacos-server
+  profiles:
+    active: test
+server:
+  port: 8901
+nacos:
+  config:
+    server-addr: 127.0.0.1:8849
+    type: yaml
+  discovery:
+    server-addr: 127.0.0.1:8849
+    register:
+      service-name: nacos-server
+      healthy: false
+      weight: 0.6D
+    auto-register: true

@@ -26,7 +26,7 @@ public class MyTask {
                     log.info("开始计算总数...");
                     TimeUnit.SECONDS.sleep(1);
                     a[0] = 500;
-                    log.info(""+  a[0]);
+                    log.info("" + a[0]);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -43,6 +43,7 @@ public class MyTask {
     }
 
     public static void main(String[] args) {
-        System.out.println("return 结果是：" + getCount());;
+        System.out.println("return 结果是：" + getCount());
+        ;
     }
 }

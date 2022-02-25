@@ -1,10 +1,11 @@
-package com.txzhang.springcloud.eurekaclient;
+package com.txzhang.nacos;
 
 
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EurekaClientApplicationTests {
+class NacosServerApplicationTests {
+
 
 
 }

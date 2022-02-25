@@ -33,11 +33,11 @@ spring:
           uri: http://jd.com:80/
           predicates:
             # 匹配路径转发
-#            - Path= /get
+            #            - Path= /get
             - Host=localhost:80
-#            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
-#          filters:
-#            - AddRequestHeader=Name, txzhang
+  #            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+  #          filters:
+  #            - AddRequestHeader=Name, txzhang
   application:
     name: host_route
 ---
@@ -48,7 +48,7 @@ spring:
         - id: before_route
           uri: http://jd.com
           predicates:
-#            - Before=2020-02-02T17:42:47.789+07:00[Asia/Shanghai]
+            #            - Before=2020-02-02T17:42:47.789+07:00[Asia/Shanghai]
             - Path=/test/**
           filters:
             args:

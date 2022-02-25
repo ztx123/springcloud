@@ -1,4 +1,3 @@
-
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/zipkin?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
@@ -6,8 +5,8 @@ spring:
     password: root1@3$5^
     continue-on-error: false
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  sleuth:
-#    enabled: false
+  #  sleuth:
+  #    enabled: false
   application:
     name: zipkin-server
     #解决 The bean 'characterEncodingFilter', defined in class path resource [zipkin/autoconfigure/ui/ZipkinUiAutoConfiguration.class], could not be registered. A bean with that name has already been defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class] and overriding is disabled.Action

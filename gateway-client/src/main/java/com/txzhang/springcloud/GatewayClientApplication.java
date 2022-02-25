@@ -55,7 +55,7 @@ public class GatewayClientApplication {
     @GetMapping("/test/fallback")
     public String index(@RequestParam(value = "isSleep", defaultValue = "true") Boolean isSleep) throws InterruptedException {
         log.info("是否睡眠：{}, 开始时间是：{}", isSleep, LocalDateTime.now());
-        if (isSleep){
+        if (isSleep) {
             TimeUnit.SECONDS.sleep(6);
         }
         log.info("结束时间是：{}", LocalDateTime.now());

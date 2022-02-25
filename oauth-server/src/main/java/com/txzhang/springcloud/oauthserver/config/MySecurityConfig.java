@@ -32,11 +32,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.requestMatchers().antMatchers("/oauth/**", "/login/**", "/logout/**")
-        .and()
-        .authorizeRequests()
-        .antMatchers("/oauth/**", "/actuator", "/login"/*, "/medium"*/).permitAll()
-        .and()
-        .formLogin().permitAll();
+                .and()
+                .authorizeRequests()
+                .antMatchers("/oauth/**", "/actuator", "/login"/*, "/medium"*/).permitAll()
+                .and()
+                .formLogin().permitAll();
     }
 
     @Override
